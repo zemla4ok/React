@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task04</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/darcula.css">
+</head>
+<body>
+
+<section class="header">
+  <div class="header__content">
+    <div class="header__subject">Контекст выполнения. Контекст вызова.</div>
+    <div class="header__id">Task04</div>
+  </div>
+</section>
+
+<section class="task">
+  <div class="task__statement">
+    Создать обычный объект и сделать его итерируемым. При этом итерация должна происходить следующим образом:<br/>
+    Должны поочерёдно проходиться все значения от свойства объекта from, до свойства to. (в случае если to < from - должна возникать ошибка).<br/>
+    Если to или from не указаны ИЛИ to или from не являются числами, должна возникать ошибка. Объект должен называться myIterable. Это важно, т.к. проверять буду тестами.<br/>
+    > Примеры:<br/>
+    const myIterable = { from: 1, to: 4 };<br/>
+    for (let item of myIterable) {<br/>
+    console.log(item); // 1, 2, 3, 4<br/>
+    }<br/>
+
+    const myIterable = { from: 'aaa', to: 4 };<br/>
+    for (let item of myIterable) { // Ошибка!<br/>
+    console.log(item);<br/>
+    }<br/>
+  </div>
+</section>
+
+<section class="task">
+  <div class="task__statement">
+    Написать свою реализацию встроенной функции массивов filter. Назвать функцию myFilter и сделать так, чтобы любой массив мог использовать данную функцию как "родную". В качестве параметров он должен принимать callback-функцию и как необязательный параметр объект, который будет использован в качестве this в рамках внутренних вызовов данной callback-функции.<br/>
+    В конечном итоге ваша реализация myFilter должна работать точно также как и встроенный метод filter. Callback-функция, переданная в качестве параметра, также должна вызываться с теми же параметрами, что и оригинал (элемент, индекс, массив).<br/>
+  </div>
+</section>
+
+<section class="task task_questions">
+  <div class="task__statement">
+    <input class="task__checkbox" type="checkbox">
+    <span>
+      Покажите Pull Request'ы для каждого задания на Github;
+    </span>
+  </div>
+</section>
+
+<section class="solution">
+  <pre><code class="javascript"></code></pre>
+</section>
+
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/highlight.pack.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

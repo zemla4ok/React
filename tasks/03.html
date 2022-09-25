@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task03</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/darcula.css">
+</head>
+<body>
+
+<section class="header">
+  <div class="header__content">
+    <div class="header__subject">Оъекты. Сложность алгоритмов (Big O notation). Функции. Структуры данных.</div>
+    <div class="header__id">Task03</div>
+  </div>
+</section>
+
+<section class="task">
+  <div class="task__statement">
+    Написать свою функцию для глубокого копирования объектов. При этом алгоритм должен осуществляться вручную (никаких
+    вариантов с использованием готовых библиотек или JSON.stringify() + JSON.parse(), за это сразу 0 баллов за первую
+    задачу). Функция должна называться makeObjectDeepCopy. Это важно, т.к. проверять буду тестами. Принимать функция
+    должна один параметр - объект, копию которого нужно сделать.
+  </div>
+</section>
+
+<section class="task">
+  <div class="task__statement">
+    Написать функцию, которая принимает три аргумента: массив чисел, первое значение интервала, второе значение
+    интервала. Результатом вызова функции должен быть массив из значений переданного массива (в качестве первого
+    параметра), которые входят в этот интервал (концы включая). Если в качестве первого параметра передан не массив или
+    массив, содержащий не только числа - кидать ошибку (throw new Error(...)). Если хотя бы одно из значений интервала
+    (имеются ввиду параметры функции selectFromInterval) - невалидное число!, то также кидать ошибку.
+    Если первое значение интервала < второго (имеются ввиду параметры функции selectFromInterval), то считать за
+    интервал значения от первого до второго, в ином случае - от второго до первого.
+    Функция должна называться selectFromInterval. Это важно, т.к. проверять буду тестами.<br/>
+    > Примеры:<br/>
+    Вызываем функцию: selectFromInterval([1,3,5], 5, 2)<br/>
+    Получаем результат: [3,5]<br/>
+    Вызываем функцию: selectFromInterval([-2, -15, 0, 4], -13, -5)<br/>
+    Получаем результат: []<br/>
+    Вызываем функцию: selectFromInterval(['aaa'], 2, 3)<br/>
+    Получаем результат: Ошибка!<br/>
+  </div>
+</section>
+
+<section class="task task_questions">
+  <div class="task__statement">
+    <input class="task__checkbox" type="checkbox">
+    <span>
+      Покажите Pull Request'ы для каждого задания на Github;
+    </span>
+  </div>
+</section>
+
+<section class="task task_extras">
+  <div class="task__statement">
+    К каждой реализованной функции в комментарии написать ее сложность по Big O;
+  </div>
+
+  <div class="task__statement">
+    Реализовать стек
+  </div>
+  <div class="task__statement">
+    Реализовать очередь
+  </div>
+  <div class="task__statement">
+    Реализовать односвязный список
+  </div>
+  <div class="task__statement">
+    Реализовать двусвязный список
+  </div>
+  <div class="task__statement">
+    p.s. каждую делать отдельным PR'ом
+  </div>
+</section>
+
+<section class="solution">
+  <pre><code class="javascript"></code></pre>
+</section>
+
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/highlight.pack.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>

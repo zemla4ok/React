@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>01</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <link rel="stylesheet" href="../css/user.css">
+  <link rel="icon" href="../icons/favicon.png">
+</head>
+<body class="yandex nodejs"><div class="reveal"><div class="slides">
+
+    <section class="large">
+        <h2>JS Core</h2>
+        <p class="author">
+            <small>Лекция 01</small>
+        </p>
+    </section>
+
+    <section>
+        <h3>Git, GitHub</h3>
+        <h3>Команды git</h3>
+        <h3>Git Flow</h3>
+    </section>
+
+    <section>
+        <img src="images/git.png"><br>
+    </section>
+
+    <section>
+        <img src="images/git-scheme.png"><br>
+    </section>
+
+    <section>
+        <h3>Основные возможности</h3>
+        <ul>
+            <li class="left fragment">git init</li>
+            <li class="left fragment">git add</li>
+            <li class="left fragment">git commit</li>
+            <li class="left fragment">git status</li>
+            <li class="left fragment">git config</li>
+            <li class="left fragment">git branch</li>
+            <li class="left fragment">git checkout</li>
+            <li class="left fragment">git merge</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>git init</h3>
+        <img src="images/git-init.png"><br>
+    </section>
+
+    <section>
+        <h3>git add</h3>
+        <img src="images/git-add.png"><br>
+    </section>
+
+    <section>
+        <h3>git commit</h3>
+        <img src="images/git-commit.png"><br>
+    </section>
+
+    <section>
+        <h3>git status</h3>
+        <img src="images/git-status.png"><br>
+    </section>
+
+    <section>
+        <h3>git config</h3>
+        <img src="images/git-config.png"><br>
+    </section>
+
+    <section>
+        <h3>git checkout</h3>
+        <img src="images/git-checkout.png"><br>
+    </section>
+
+    <section>
+        <h3>git merge</h3>
+        <img src="images/git-merge.png"><br>
+    </section>
+
+    <section>
+        <h3>Работа с удаленным репозиторием</h3>
+        <ul>
+            <li class="left fragment">git remote</li>
+            <li class="left fragment">git clone</li>
+            <li class="left fragment">git fetch</li>
+            <li class="left fragment">git pull</li>
+            <li class="left fragment">git push</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>git remote</h3>
+        <img src="images/git-remote.png"><br>
+    </section>
+
+    <section>
+        <h3>git clone</h3>
+        <img src="images/git-clone.png"><br>
+    </section>
+
+    <section>
+        <h3>git fetch</h3>
+        <img src="images/git-fetch.png"><br>
+    </section>
+
+    <section>
+        <h3>git pull</h3>
+        <img src="images/git-pull.png"><br>
+    </section>
+
+    <section>
+        <h3>git push</h3>
+        <img src="images/git-push.png"><br>
+    </section>
+
+    <section>
+        <h3>Бонусные команды</h3>
+        <ul>
+            <li class="left fragment">git stash</li>
+            <li class="left fragment">git cherry-pick</li>
+            <li class="left fragment">git rebase</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Git Flow</h3>
+        <img src="images/git-flow.png"><br>
+    </section>
+
+    <section>
+        <h3>1. Создать новую ветку</h3>
+        <img src="images/git-new-branch.png"><br>
+    </section>
+
+    <section>
+        <h3>2. Добавить изменения (создать несколько новых коммитов)</h3>
+        <img src="images/git-few-commits.png"><br>
+    </section>
+
+    <section>
+        <h3>3. Создать запрос на внесение изменений (pull/merge request)</h3>
+        <img src="images/git-mr.png"><br>
+    </section>
+
+    <section>
+        <h3>4. Обзор и обсуждение кода Внесение новых изменений</h3>
+        <img src="images/git-mr.png"><br>
+    </section>
+
+    <section>
+        <h3>5. Развёртывание кода и финальное тестирование</h3>
+        <img src="images/git-testing.png"><br>
+    </section>
+
+    <section>
+        <h3>6. Внесение изменений в основную ветку</h3>
+        <img src="images/git-testing.png"><br>
+    </section>
+
+    <section>
+        <h3>Q&A</h3>
+    </section>
+</div></div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+<script>
+    Reveal.initialize({
+        controls: false,
+        progress: true,
+        slideNumber: true,
+        history: true,
+        center: true,
+        hideAddressBar: true,
+        transition: 'slide',
+        dependencies: [
+            {
+                src: '../plugin/highlight/highlight.js',
+                async: true,
+                condition: function () {
+                    return Boolean(document.querySelector('pre code'));
+                },
+                callback: function () {
+                    hljs.initHighlightingOnLoad();
+                }
+            }
+        ]
+    });
+
+    const body = document.getElementsByClassName('yandex')[0];
+    let invert = false;
+
+    body.onkeypress = function (event) {
+      if (event.key.toLowerCase() !== 'i') return;
+
+      if (invert) body.style = '';
+      else body.style = 'filter: invert(100%)';
+
+      invert = !invert;
+    }
+</script>
+</body>
+</html>

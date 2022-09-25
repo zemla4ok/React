@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task05</title>
+  <link rel="stylesheet" href="assets/fonts.css">
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/darcula.css">
+</head>
+<body>
+
+<section class="header">
+  <div class="header__content">
+    <div class="header__subject">Event Loop. Асинхронность в JavaScript. Promise, HTTP.</div>
+    <div class="header__id">Task05</div>
+  </div>
+</section>
+
+<section class="task">
+  <div class="task__statement">
+    Написать функцию createDebounceFunction. Она должна принимать два аргумента: callback-функцию и задержку в миллисекундах. Данная функция должна возвращать новую функцию, вызывающую callback-функцию с задержкой в переданное количество миллисекунд. ПРИ ЭТОМ! Если за то время, пока внутрення callback-функция ждёт своего вызова, наша созданная функция вызывается ещё раз, то "счётчик" времени должен сбрасываться и начинаться заново (т.е. вызова внутренней функции произойти не должно).
+    <br/>
+    > Пример:<br/>
+    const log100 = () => console.log(100);<br/>
+    const debounceLog100 = createDebounceFunction(log100, 1000);<br/>
+    debounceLog100();<br/>
+    setTimeout(debounceLog100, 200); // так как задержка в 1000мс и новый вызов этой же функции происходит через 200 миллисекунд, то таймер запускается заново<br/>
+    setTimeout(debounceLog100, 400); // снова сбрасываем таймер ещё через 200 миллисекунд<br/>
+    <br/>
+    Вывод в консоли значения 100 примерно через 1000мс + 200мс + 200мс<br/>
+  </div>
+</section>
+
+<section class="task task_questions">
+  <div class="task__statement">
+    <input class="task__checkbox" type="checkbox">
+    <span>
+      Покажите Pull Request'ы для каждого задания на Github;
+    </span>
+  </div>
+</section>
+
+<section class="solution">
+  <pre><code class="javascript"></code></pre>
+</section>
+
+<script src="assets/jquery-3.2.1.min.js"></script>
+<script src="assets/highlight.pack.js"></script>
+<script src="assets/script.js"></script>
+</body>
+</html>
