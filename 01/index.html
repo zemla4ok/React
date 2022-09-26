@@ -1,86 +1,407 @@
 <!doctype html>
 <html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <title>01</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-    <link rel="stylesheet" href="../css/reveal.css">
-    <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
-    <link rel="stylesheet" href="../lib/css/zenburn.css">
-    <link rel="stylesheet" href="../css/user.css">
+  <meta charset="utf-8">
+  <title>01</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../css/reveal.css">
+  <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
+  <link rel="stylesheet" href="../lib/css/zenburn.css">
+  <link rel="stylesheet" href="../css/user.css">
   <link rel="icon" href="../icons/favicon.png">
+  <style>
+    .react-img {
+        width: 300px;
+    }
+
+    .cra-img {
+        width: 450px;
+    }
+
+    .jsx-img {
+        width: 350px;
+        margin-right: 40px !important;
+    }
+
+    .jsx-img-2 {
+        width: 388px;
+    }
+
+    .lc-img {
+        width: 700px;
+    }
+  </style>
 </head>
-<body class="yandex nodejs"><div class="reveal"><div class="slides">
+<body class="yandex nodejs">
+<div class="reveal">
+  <div class="slides">
 
     <section class="large">
-        <h2>React</h2>
-        <p class="author">
-            <small>Лекция 01</small>
-        </p>
+      <h2>React</h2>
+      <p class="author">
+        <small>Лекция 01</small>
+      </p>
     </section>
 
     <section>
-        <h3>React основы</h3>
-    </section>
-
-
-
-
-
-
-    <section>
-        <img src="images/git.png"><br>
+      <h3 class="magenta">React основы</h3>
+      <img src="images/react.png" class="react-img">
     </section>
 
     <section>
-        <h3>Основные возможности</h3>
-        <ul>
-            <li class="left fragment">git init</li>
-            <li class="left fragment">git add</li>
-        </ul>
+      <h3 class="yellow">React. Введение</h3>
+      <ul>
+        <li class="left fragment">переиспользование компонент</li>
+        <li class="left fragment">хранение данных внутри компоненты</li>
+        <li class="left fragment">быстрота[Virtual DOM]</li>
+        <li class="left fragment">простота[JSX]</li>
+      </ul>
     </section>
 
     <section>
-        <h3>Q&A</h3>
+      <h3 class="yellow">Настройка окружения</h3>
+      <img src="images/cra_1.png" class="cra-img">
+      <img src="images/cra_2.png" class="cra-img">
     </section>
-</div></div>
+
+    <section>
+      <h3 class="yellow">JSX</h3>
+      <img src="images/jsx_1.png" class="jsx-img">
+      <img src="images/jsx_2.png" class="jsx-img-2">
+    </section>
+
+    <section>
+      <h3 class="yellow">Типы компонент</h3>
+      <table class="operations">
+        <tr class="fragment">
+          <td>
+            <div class="center magenta">классовые</div>
+          </td>
+          <td>
+            <div class="center red">функциональные</div>
+          </td>
+        </tr>
+        <tr class="fragment">
+          <td>
+            <div class="center magenta">stateless</div>
+          </td>
+          <td>
+            <div class="center red">statefull</div>
+          </td>
+        </tr>
+        <tr class="fragment">
+          <td>
+            <div class="center magenta">управляемые</div>
+          </td>
+          <td>
+            <div class="center red">неуправляемые</div>
+          </td>
+        </tr>
+      </table>
+    </section>
+
+    <section>
+      <h3 class="magenta">Классовые компоненты</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+import React from "react";
+
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => this.tick(),
+      1000
+    );
+  }
+  ...
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Классовые компоненты</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class Clock extends React.Component {
+  ...
+  tick() {
+    this.setState({
+      date: new Date()
+    });
+  }
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <h2>Now: {this.state.date.toLocaleTimeString()}</h2>
+      </div>
+    )
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Функциональные компоненты</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+import React, {useEffect, useState} from "react";
+
+function Clock() {
+  const [date, setDate] = useState({ date: new Date });
+  useEffect(() => {
+    const timerId = setInterval(
+      () => tick(),
+      1000
+    );
+    return () => {
+      clearInterval(timerId);
+    }
+  }, []);
+  ...
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Функциональные компоненты</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+function Clock() {
+  ...
+  const tick = () => {
+    setDate({
+      date: new Date()
+    });
+  }
+  return (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>Now: {date.toLocaleTimeStrung()}</h2>
+    </div>
+  )
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">State</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class Clock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date(), isOpen: true };
+  }
+  onToggle() {
+    this.setState((prevState, props) => ({
+      ...prev,
+      isOpen: !prev.isOpen
+    }), () => console.log("state changed"));
+  }
+  render() {
+    return <div>Hello, world!</div>;
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Props</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+import React from "react";
+
+class Avatar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {img, title} = this.props;
+    return (
+      <div>
+        <img src={img} alt={title}/>
+      </div>
+    );
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Ref</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class CustomInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.textInput = React.createRef();
+    this.avatar = React.createRef();
+  }
+
+  render() {
+    return (
+      <div>
+        <input type='text' ref={this.textInput}/>
+        <Avatar ref={this.avatar}/>
+      </div>
+    );
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">Особенности ref</h3>
+      <ul>
+        <li class="left fragment">createRef/useRef</li>
+        <li class="left fragment">инстанс в .current</li>
+        <li class="left fragment">forwardRef</li>
+        <li class="left fragment">доступ к актуальным значениям</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="magenta">Ref</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class CustomInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.textInput = React.createRef();
+  }
+
+  handleSubmit() {
+    console.log("value:", this.input.current.value);
+  }
+
+  render() {
+    return (
+      <input type='text' ref={this.textInput}/>
+    );
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Event handling</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class CustomInput extends React.Component {
+  constructor(props) {
+    super(props);
+    this.onChange = ::this.onChangeHandler;
+  }
+
+  onChangeHandler(e) {
+    console.log("value:", e.target.value);
+  }
+
+  render() {
+    return (
+      <input type='text' onChange={this.onChange}/>
+    );
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Virtual DOM</h3>
+      <img src="images/vdom.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Жизненынй цикл</h3>
+      <img src="images/lifecycle.png" class="lc-img">
+    </section>
+
+    <section>
+      <h3>Q&A</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">BONUS</h3>
+      <ul>
+        <li class="left fragment"><a href="https://habr.com/ru/post/358090/" target="_blank">Жизненный цикл компонента</a></li>
+        <li class="left fragment"><a href="https://uncleseneca.medium.com/%D0%BF%D0%BE%D0%B4%D1%80%D0%BE%D0%B1%D0%BD%D1%8B%D0%B9-%D0%BE%D0%B1%D0%B7%D0%BE%D1%80-react-fiber-66485d12bd37" target="_blank">Fiber</a></li>
+        <li class="left fragment"><a href="https://habr.com/ru/post/343504/" target="_blank">Fiber more</a></li>
+        <li class="left fragment"><a href="https://uncleseneca.medium.com/%D0%BA%D0%B0%D0%BA-%D0%B8-%D0%BF%D0%BE%D1%87%D0%B5%D0%BC%D1%83-react-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D1%83%D0%B5%D1%82-%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B5-%D1%81%D0%BF%D0%B8%D1%81%D0%BA%D0%B8-%D0%B2-%D0%B0%D1%80%D1%85%D0%B8%D1%82%D0%B5%D0%BA%D1%82%D1%83%D1%80%D0%B5-fiber-17470edf5d15" target="_blank">Fiber more and more:)</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
 
 <script src="../lib/js/head.min.js"></script>
 <script src="../js/reveal.js"></script>
 <script>
-    Reveal.initialize({
-        controls: false,
-        progress: true,
-        slideNumber: true,
-        history: true,
-        center: true,
-        hideAddressBar: true,
-        transition: 'slide',
-        dependencies: [
-            {
-                src: '../plugin/highlight/highlight.js',
-                async: true,
-                condition: function () {
-                    return Boolean(document.querySelector('pre code'));
-                },
-                callback: function () {
-                    hljs.initHighlightingOnLoad();
-                }
-            }
-        ]
-    });
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    center: true,
+    hideAddressBar: true,
+    transition: 'slide',
+    dependencies: [
+      {
+        src: '../plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          return Boolean(document.querySelector('pre code'));
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
 
-    const body = document.getElementsByClassName('yandex')[0];
-    let invert = false;
+  const body = document.getElementsByClassName('yandex')[0];
+  let invert = false;
 
-    body.onkeypress = function (event) {
-      if (event.key.toLowerCase() !== 'i') return;
+  body.onkeypress = function (event) {
+    if (event.key.toLowerCase() !== 'i') return;
 
-      if (invert) body.style = '';
-      else body.style = 'filter: invert(100%)';
+    if (invert) body.style = '';
+    else body.style = 'filter: invert(100%)';
 
-      invert = !invert;
-    }
+    invert = !invert;
+  }
 </script>
 </body>
 </html>
