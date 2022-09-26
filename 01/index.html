@@ -213,8 +213,8 @@ class Clock extends React.Component {
   }
   onToggle() {
     this.setState((prevState, props) => ({
-      ...prev,
-      isOpen: !prev.isOpen
+      ...prevState,
+      isOpen: !prevState.isOpen
     }), () => console.log("state changed"));
   }
   render() {
@@ -300,7 +300,7 @@ class CustomInput extends React.Component {
   }
 
   handleSubmit() {
-    console.log("value:", this.input.current.value);
+    console.log("value:", this.textInput.current.value);
   }
 
   render() {
