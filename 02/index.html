@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>02</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../css/reveal.css">
+  <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
+  <link rel="stylesheet" href="../lib/css/zenburn.css">
+  <link rel="stylesheet" href="../css/user.css">
+  <link rel="icon" href="../icons/favicon.png">
+  <style>
+      .react-img {
+          width: 300px;
+      }
+
+      .class-img {
+          width: 400px;
+      }
+
+      .func-img {
+          width: 450px;
+      }
+  </style>
+</head>
+<body class="yandex nodejs">
+<div class="reveal">
+  <div class="slides">
+
+    <section class="large">
+      <h2>React</h2>
+      <p class="author">
+        <small>Лекция 02</small>
+      </p>
+    </section>
+
+    <section>
+      <h3 class="magenta">React продвинутый</h3>
+      <img src="images/react.png" class="react-img">
+    </section>
+
+    <section>
+      <h3 class="magenta">Списки и ключи</h3>
+      <img src="images/keys.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">React Fragment</h3>
+      <img src="images/fragment.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">React Context</h3>
+      <ul>
+        <li class="left fragment">React.createContext()</li>
+        <li class="left fragment">Context.Provider</li>
+        <li class="left fragment">Context.Consumer</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="yellow">React.createContext()</h3>
+      <img src="images/create-context.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">Context.Provider</h3>
+      <img src="images/context-provider.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">Context.Consumer</h3>
+      <img src="images/context-consumer.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">HOOKS</h3>
+      <ul>
+        <li class="left fragment">внутреннее состояние</li>
+        <li class="left fragment">побочные эффекты</li>
+        <li class="left fragment">ЖЦ компонента</li>
+      </ul>
+    </section>
+
+    <section>
+      <img src="images/class-component.png" class="class-img">
+      <img src="images/func-component.png" class="func-img">
+    </section>
+
+    <section>
+      <h3 class="yellow">Преимущества</h3>
+      <ul>
+        <li class="left fragment">this</li>
+        <li class="left fragment">оптимизация</li>
+        <li class="left fragment">проще работать с состоянием</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="yellow">Недостатки</h3>
+      <ul>
+        <li class="left fragment">не работают в классах</li>
+        <li class="left fragment">нельзя закидывать в блоки</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="yellow">useState</h3>
+      <img src="images/useState.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useEffect</h3>
+      <ul>
+        <li class="left fragment">componentDidMount</li>
+        <li class="left fragment">componentDidUpdate</li>
+        <li class="left fragment">ComponentWillUnmount</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="yellow">не требуют сброса</h3>
+      <img src="images/useEffect_1.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">требуют сброса</h3>
+      <img src="images/useEffect_2.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useMemo</h3>
+      <img src="images/useMemo.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useCallback</h3>
+      <img src="images/.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useCallback</h3>
+      <div>useCallback(fn, deps) — это эквивалент useMemo(() => fn, deps)</div>
+    </section>
+
+    <section>
+      <h3 class="yellow">useRef</h3>
+      <img src="images/useRef.png">
+      <img src="images/useRef_2.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useContext</h3>
+      <img src="images/useContext.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useLayoutEffect</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">Кастомные хуки</h3>
+      <img src="images/custom-hook.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">HOC</h3>
+      <img src="images/hoc.png" style="width: 450px">
+    </section>
+
+    <section>
+      <h3 class="yellow">Portal</h3>
+      <img src="images/portal.png">
+    </section>
+
+    <section>
+      <h3>Q&A</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">BONUS</h3>
+      <ul>
+        <li class="left fragment"><a href="https://habr.com/ru/post/309422/" target="_blank">Паттерны React</a></li>
+        <li class="left fragment"><a href="https://habr.com/ru/company/ruvds/blog/445276/" target="_blank">useEffect</a></li>
+        <li class="left fragment"><a href="https://github.com/streamich/react-use" target="_blank">react-use</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    center: true,
+    hideAddressBar: true,
+    transition: 'slide',
+    dependencies: [
+      {
+        src: '../plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          return Boolean(document.querySelector('pre code'));
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+
+  const body = document.getElementsByClassName('yandex')[0];
+  let invert = false;
+
+  body.onkeypress = function (event) {
+    if (event.key.toLowerCase() !== 'i') return;
+
+    if (invert) body.style = '';
+    else body.style = 'filter: invert(100%)';
+
+    invert = !invert;
+  }
+</script>
+</body>
+</html>
