@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>03</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../css/reveal.css">
+  <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
+  <link rel="stylesheet" href="../lib/css/zenburn.css">
+  <link rel="stylesheet" href="../css/user.css">
+  <link rel="icon" href="../icons/favicon.png">
+  <style>
+
+  </style>
+</head>
+<body class="yandex nodejs">
+<div class="reveal">
+  <div class="slides">
+
+    <section class="large">
+      <h2>React</h2>
+      <p class="author">
+        <small>Лекция 03</small>
+      </p>
+    </section>
+
+    <section>
+      <h3 class="magenta">React Router</h3>
+      <img src="images/rr.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Browser Router</h3>
+      <img src="images/browser-router.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Route</h3>
+      <img src="images/route.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Switch</h3>
+      <img src="images/switch.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Link</h3>
+      <img src="images/link.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">NavLink</h3>
+      <img src="images/nav-link.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">Redirect</h3>
+      <img src="images/redirect.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">Hooks</h3>
+      <ul>
+        <li class="left fragment">useHistory</li>
+        <li class="left fragment">useLocation</li>
+        <li class="left fragment">useParams</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="magenta">useLocation</h3>
+      <img src="images/useLocation.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">useHistory</h3>
+      <img src="images/useHistory.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">useParams</h3>
+      <img src="images/useParams.png">
+    </section>
+
+    <section>
+      <h3>Q&A</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">BONUS</h3>
+      <ul>
+        <li class="left fragment"><a href="https://reactrouter.com/en/main/components/link" target="_blank">docs</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    center: true,
+    hideAddressBar: true,
+    transition: 'slide',
+    dependencies: [
+      {
+        src: '../plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          return Boolean(document.querySelector('pre code'));
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+
+  const body = document.getElementsByClassName('yandex')[0];
+  let invert = false;
+
+  body.onkeypress = function (event) {
+    if (event.key.toLowerCase() !== 'i') return;
+
+    if (invert) body.style = '';
+    else body.style = 'filter: invert(100%)';
+
+    invert = !invert;
+  }
+</script>
+</body>
+</html>
