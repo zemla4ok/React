@@ -1,0 +1,22 @@
+{
+  "name": "todo-list-mobx",
+  "description": null,
+  "homepage": "https://codesandbox.io/s/W69E5Oj3v",
+  "version": "0.0.58",
+  "dependencies": {
+    "mobx": "3.5.1",
+    "mobx-react": "4.4.1",
+    "react": "16.2.0",
+    "react-dom": "16.2.0",
+    "styled-components": "3.1.6"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
