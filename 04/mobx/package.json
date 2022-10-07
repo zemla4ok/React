@@ -1,7 +1,6 @@
 {
-  "name": "todo-list-mobx",
+  "name": "mobx",
   "description": null,
-  "homepage": "https://codesandbox.io/s/W69E5Oj3v",
   "version": "0.0.58",
   "dependencies": {
     "mobx": "3.5.1",
