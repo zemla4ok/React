@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="utf-8">
-  <title>03</title>
+  <title>05</title>
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="../css/reveal.css">
@@ -21,67 +21,257 @@
     <section class="large">
       <h2>React</h2>
       <p class="author">
-        <small>Лекция 03</small>
+        <small>Лекция 05</small>
       </p>
     </section>
 
     <section>
-      <h3 class="magenta">React Router</h3>
-      <img src="images/rr.png">
+      <h3 class="magenta">Типизация</h3>
     </section>
 
     <section>
-      <h3 class="magenta">Browser Router</h3>
-      <img src="images/browser-router.png">
-    </section>
-
-    <section>
-      <h3 class="magenta">Route</h3>
-      <img src="images/route.png">
-    </section>
-
-    <section>
-      <h3 class="magenta">Switch</h3>
-      <img src="images/switch.png">
-    </section>
-
-    <section>
-      <h3 class="magenta">Link</h3>
-      <img src="images/link.png">
-    </section>
-
-    <section>
-      <h3 class="magenta">NavLink</h3>
-      <img src="images/nav-link.png">
-    </section>
-
-    <section>
-      <h3 class="magenta">Redirect</h3>
-      <img src="images/redirect.png">
-    </section>
-
-    <section>
-      <h3 class="yellow">Hooks</h3>
+      <h3 class="green">Плюсы</h3>
       <ul>
-        <li class="left fragment">useHistory</li>
-        <li class="left fragment">useLocation</li>
-        <li class="left fragment">useParams</li>
+        <li class="left fragment">Удобная отладка</li>
+        <li class="left fragment">Сложнее допустить ошибку</li>
+        <li class="left fragment">Понятный код</li>
       </ul>
     </section>
 
     <section>
-      <h3 class="magenta">useLocation</h3>
-      <img src="images/useLocation.png">
+      <h3 class="red">Минусы</h3>
+      <ul>
+        <li class="left fragment">Больше кода</li>
+        <li class="left fragment">Времязатраты</li>
+        <li class="left fragment">Порог вхождения</li>
+      </ul>
     </section>
 
     <section>
-      <h3 class="magenta">useHistory</h3>
-      <img src="images/useHistory.png">
+      <h3 class="yellow">PropTypes</h3>
     </section>
 
     <section>
-      <h3 class="magenta">useParams</h3>
-      <img src="images/useParams.png">
+      <h3 class="magenta">PropTypes</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+class MyComponent extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    const {name, age} = this.props;
+    return <>{`${name}: ${age} years`}</>
+  }
+}
+...
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">PropTypes</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+...
+
+MyComponent.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number
+};
+
+...
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">PropTypes</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+...
+
+MyComponent.defaultProps = {
+  name: "Dmitry"
+};
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">PropTypes</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+...
+
+const MyFuncComponent = ({name = "Dmitry", age}) => {
+  return <>{`${name}: ${age} years`}</>
+};
+
+...
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">PropTypes</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+...
+
+MyFuncComponent.propTypes = {
+  name: PropTypes.string,
+  age: PropTypes.number
+};
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">TypeScript</h3>
+      <img src="images/ts.png">
+    </section>
+
+    <section>
+      <h3 class="magenta">TypeScript</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+let a: number = 5;
+a = 'aaaaaaa'; // error
+
+const myObj: {a: number} = {
+a: 10
+};
+myObj.a = 'aaaaaaa'; // error;
+
+const myArr: number[] = [1, 2, 3];
+myArr.push('aaaaaaa'); // error;
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">TypeScript</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+const myFunc = (
+            str: string,
+            bool?: boolean,
+            ...nums: number[]): void => {}
+
+let b: string | number = 5;
+b = 'a';
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Type & Interface</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+type User = {
+  name: string,
+  age: number
+};
+
+interface IApiResponse {
+  data: {
+    user: User,
+  },
+  status: number
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Enum</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+export enum RENDERING_RESULT {
+  SUCCESS = "SUCCESS",
+  ERROR = "ERROR",
+  UNDEFINED = "UNDEFINED",
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Generics</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+const myFunc = &lt;T&gt;(arg: T, str: string): string => {
+  return str + arg;
+}
+
+myFunc&lt;number&gt;(18, "age: "); // age: 18;
+myFunc&lt;boolean&gt;(true, "success: "); // success: true;
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">Generics</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+type Item&lt;T&gt; = {
+  prop: T;
+};
+
+const item1: Item&lt;number&gt; = {prop: 42};
+const item2: Item = {prop: 42}; // error
+const item3: Item&lt;string&gt; = {prop: '42'};
+const item4: Item&lt;string&gt; = {prop: true}; // error
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="magenta">React Example</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+import React from 'react';
+
+type MyProps = {
+  name: string,
+  age: number
+}
+
+const MyFuncComponent: React.FC&lt;MyProps&gt; = (props) => {
+  const {name, age} = props;
+  return &lt;&gt;{`${name}: ${age} years`}&lt;/&gt;
+};
+          </code>
+        </pre>
+      </div>
     </section>
 
     <section>
@@ -91,7 +281,9 @@
     <section>
       <h3 class="yellow">BONUS</h3>
       <ul>
-        <li class="left fragment"><a href="https://reactrouter.com/en/main/components/link" target="_blank">docs</a></li>
+        <li class="left fragment"><a href="https://www.npmjs.com/package/prop-types" target="_blank">prop-types</a></li>
+        <li class="left fragment"><a href="https://www.typescriptlang.org/docs/" target="_blank">TypeScript</a></li>
+        <li class="left fragment"><a href="https://flow.org/en/docs/" target="_blank">flow</a></li>
       </ul>
     </section>
   </div>
