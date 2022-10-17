@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>07</title>
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../css/reveal.css">
+  <link rel="stylesheet" href="../css/theme/yandex.css" id="theme">
+  <link rel="stylesheet" href="../lib/css/zenburn.css">
+  <link rel="stylesheet" href="../css/user.css">
+  <link rel="icon" href="../icons/favicon.png">
+  <style>
+  </style>
+</head>
+<body class="yandex nodejs">
+<div class="reveal">
+  <div class="slides">
+
+    <section class="large">
+      <h2>React</h2>
+      <p class="author">
+        <small>Лекция 07</small>
+      </p>
+    </section>
+
+    <section>
+      <h3 class="magenta">Оптимизация</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">shouldComponentUpdate</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class Counter extends Component {
+  shouldComponentUpdate(nextProps) {
+    return nextProps.value !== this.props.value;
+  }
+  render() {
+    return (
+      <div>
+        <h3>{this.props.value}</h3>
+        <button onClick={this.props.onClick}>Add</button>
+      </div>
+    );
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">PureComponent</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+class Welcome extends React.PureComponent {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">React.memo</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+const Todos = ({ todos }) => {
+  console.log("child render");
+  return (
+    <>
+      <h2>My Todos</h2>
+      {todos.map((todo, index) => {
+        return <p key={index}>{todo}</p>;
+      })}
+    &lt;/&gt;
+  );
+};
+
+export default memo(Todos);
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">useMemo</h3>
+      <img src="images/useMemo.png">
+    </section>
+
+    <section>
+      <h3 class="yellow">useCallback</h3>
+      <div class="left">
+        <pre class="javascript">
+          <code>
+const App = () => {
+  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
+  const increment = () => {setCount((c) => c + 1);};
+  const addTodo = useCallback(() => {setTodos((t) => [...t, "New Todo"]);}, [todos]);
+
+  return (
+    <>
+      <Todos todos={todos} addTodo={addTodo} />
+      <hr />
+      <div>
+        Count: {count}
+        <button onClick={increment}>+</button>
+      </div>
+    &lt/&gt
+  );
+};
+          </code>
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h3 class="yellow">Reselect</h3>
+      <img src="images/reselect.png">
+    </section>
+
+    <section>
+      <h3>Q&A</h3>
+    </section>
+
+    <section>
+      <h3 class="yellow">BONUS</h3>
+      <ul>
+        <li class="left fragment"><a href="https://medium.com/devschacht/neil-fenton-improving-react-and-redux-performance-with-reselect-40f1d3efba89" target="_blank">тык</a></li>
+        <li class="left fragment"><a href="https://ru.reactjs.org/docs/optimizing-performance.html" target="_blank">клац</a></li>
+      </ul>
+    </section>
+  </div>
+</div>
+
+<script src="../lib/js/head.min.js"></script>
+<script src="../js/reveal.js"></script>
+<script>
+  Reveal.initialize({
+    controls: false,
+    progress: true,
+    slideNumber: true,
+    history: true,
+    center: true,
+    hideAddressBar: true,
+    transition: 'slide',
+    dependencies: [
+      {
+        src: '../plugin/highlight/highlight.js',
+        async: true,
+        condition: function () {
+          return Boolean(document.querySelector('pre code'));
+        },
+        callback: function () {
+          hljs.initHighlightingOnLoad();
+        }
+      }
+    ]
+  });
+
+  const body = document.getElementsByClassName('yandex')[0];
+  let invert = false;
+
+  body.onkeypress = function (event) {
+    if (event.key.toLowerCase() !== 'i') return;
+
+    if (invert) body.style = '';
+    else body.style = 'filter: invert(100%)';
+
+    invert = !invert;
+  }
+</script>
+</body>
+</html>
